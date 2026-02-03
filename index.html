@@ -1,72 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Talal Alahbabi</title>
 
-    <style>
-  body{
-    font-family: Arial, sans-serif;
-    max-width: 850px;
-    margin: 60px auto;
-    padding: 0 18px;
-    line-height: 1.7;
-    color: #111;
-  }
+  <style>
+    body{
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: #e8e8e8;
+      margin: 0;
+      line-height: 1.6;
+    }
 
-  h1{
-    margin-bottom: 6px;
-    font-size: 42px;
-  }
+    .container{
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 18px;
+    }
 
-  p{
-    margin-top: 0;
-    color: #333;
-  }
+    .card{
+      background: #11182a;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 16px;
+    }
 
-  h2{
-    margin-top: 28px;
-    font-size: 22px;
-  }
+    .hero h1{
+      margin: 0 0 6px 0;
+      font-size: 44px;
+      letter-spacing: 0.2px;
+    }
 
-  ul{
-    padding-left: 18px;
-  }
+    .subtitle{
+      margin: 0;
+      color: rgba(232,232,232,0.75);
+    }
 
-  a{
-    color: #0b57d0;
-    text-decoration: none;
-  }
+    .row{
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
 
-  a:hover{
-    text-decoration: underline;
-  }
-</style>
+    .btn{
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 10px;
+      background: #1b2a4a;
+      border: 1px solid rgba(255,255,255,0.10);
+      color: #e8e8e8;
+      text-decoration: none;
+      font-weight: 600;
+    }
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Talal Alahbabi</title>
+    .btn:hover{
+      transform: translateY(-1px);
+    }
+
+    h2{
+      margin: 0 0 10px 0;
+      font-size: 18px;
+      color: rgba(232,232,232,0.95);
+    }
+
+    ul{
+      margin: 0;
+      padding-left: 18px;
+      color: rgba(232,232,232,0.85);
+    }
+
+    .grid{
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .project{
+      background: #0f1526;
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 12px;
+      padding: 14px;
+    }
+
+    .project p{
+      margin: 6px 0 12px 0;
+      color: rgba(232,232,232,0.75);
+    }
+
+    .small{
+      font-size: 14px;
+      color: rgba(232,232,232,0.65);
+      margin-top: 10px;
+    }
+
+    @media (max-width: 740px){
+      .hero h1{ font-size: 34px; }
+      .grid{ grid-template-columns: 1fr; }
+    }
+  </style>
 </head>
 
 <body>
+  <div class="container">
 
-<h1>Talal Alahbabi</h1>
-<p>Computer Science student based in the UK.</p>
+    <div class="card hero">
+      <h1>Talal Alahbabi</h1>
+      <p class="subtitle">Computer Science student in the UK. Building small projects and learning fast.</p>
 
-<h2>About Me</h2>
-<p>I am currently studying computer science and learning web development.</p>
+      <div class="row">
+        <a class="btn" href="https://github.com/TalalAlahbabi" target="_blank">GitHub</a>
+        <a class="btn" href="#projects">Projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
 
-<h2>Skills</h2>
-<ul>
-    <li>Java</li>
-    <li>Problem Solving</li>
-    <li>HTML (beginner)</li>
-</ul>
-    
+      <p class="small">Last updated: Feb 2026</p>
+    </div>
 
-    
-<h2>Contact</h2>
-<p>
-    <a href="https://github.com/TalalAlahbabi">GitHub</a>
-</p>
+    <div class="grid">
 
+      <div class="card">
+        <h2>About</h2>
+        <p class="subtitle">
+          I’m currently studying computer science and improving my skills in programming, problem solving, and web development.
+        </p>
+      </div>
+
+      <div class="card">
+        <h2>Skills</h2>
+        <ul>
+          <li>Java</li>
+          <li>Problem Solving</li>
+          <li>HTML + CSS (beginner)</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="card" id="projects">
+      <h2>Projects</h2>
+
+      <div class="grid">
+        <div class="project">
+          <strong>Java Password Generator</strong>
+          <p>Generates random passwords with rules (length, digits, upper/lowercase) and saves output to a file.</p>
+          <a class="btn" href="#" title="Add repo link later">Coming soon</a>
+        </div>
+
+        <div class="project">
+          <strong>GPU Architecture Report</strong>
+          <p>A short report about modern GPU uses, scheduling, virtualization, and trade-offs in production systems.</p>
+          <a class="btn" href="#" title="Add report link later">Coming soon</a>
+        </div>
+
+        <div class="project">
+          <strong>Database Design Project</strong>
+          <p>ERD + SQL schema for a realistic scenario (tables, keys, relationships, queries).</p>
+          <a class="btn" href="#" title="Add repo link later">Coming soon</a>
+        </div>
+
+        <div class="project">
+          <strong>freeCodeCamp Labs</strong>
+          <p>Small HTML projects built to practice structure, media tags, and layout patterns.</p>
+          <a class="btn" href="#" title="Add link later">Coming soon</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" id="contact">
+      <h2>Contact</h2>
+      <p class="subtitle">If you want to reach me, use GitHub for now. I’ll add LinkedIn later.</p>
+      <div class="row">
+        <a class="btn" href="https://github.com/TalalAlahbabi" target="_blank">GitHub</a>
+        <a class="btn" href="mailto:your-email@example.com">Email</a>
+      </div>
+      <p class="small">Tip: replace the email with your real one.</p>
+    </div>
+
+  </div>
 </body>
 </html>
