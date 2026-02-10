@@ -7,100 +7,55 @@
 
   <style>
     body{
-      font-family: Arial, sans-serif;
-      background: #0b0f19;
-      color: #e8e8e8;
-      margin: 0;
-      line-height: 1.6;
-    }
+  font-family: Arial, sans-serif;
+  background: #f7f6f2; /* beige soft */
+  color: #222;
+  margin: 0;
+  line-height: 1.6;
+}
 
-    .container{
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 48px 18px;
-    }
+.card{
+  background: #ffffff;
+  border: 1px solid rgba(0,0,0,0.06);
+  border-radius: 14px;
+  padding: 22px;
+  margin-bottom: 16px;
+}
 
-    .card{
-      background: #11182a;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 16px;
-    }
+.hero{
+  background: linear-gradient(135deg, #fffbe6, #f1ffe7);
+}
 
-    .hero h1{
-      margin: 0 0 6px 0;
-      font-size: 44px;
-      letter-spacing: 0.2px;
-    }
+.subtitle{
+  color: rgba(0,0,0,0.65);
+}
 
-    .subtitle{
-      margin: 0;
-      color: rgba(232,232,232,0.75);
-    }
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: #eaffd6; /* light green */
+  border: 1px solid rgba(0,0,0,0.08);
+  color: #222;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.2s;
+}
 
-    .row{
-      display: flex;
-      gap: 14px;
-      flex-wrap: wrap;
-      margin-top: 14px;
-    }
+.btn:hover{
+  background: #fff4b5; /* soft yellow */
+  transform: translateY(-2px);
+}
 
-    .btn{
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: #1b2a4a;
-      border: 1px solid rgba(255,255,255,0.10);
-      color: #e8e8e8;
-      text-decoration: none;
-      font-weight: 600;
-    }
+.project{
+  background: #fffdf5;
+  border: 1px solid rgba(0,0,0,0.06);
+}
 
-    .btn:hover{
-      transform: translateY(-1px);
-    }
-
-    h2{
-      margin: 0 0 10px 0;
-      font-size: 18px;
-      color: rgba(232,232,232,0.95);
-    }
-
-    ul{
-      margin: 0;
-      padding-left: 18px;
-      color: rgba(232,232,232,0.85);
-    }
-
-    .grid{
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-
-    .project{
-      background: #0f1526;
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 12px;
-      padding: 14px;
-    }
-
-    .project p{
-      margin: 6px 0 12px 0;
-      color: rgba(232,232,232,0.75);
-    }
-
-    .small{
-      font-size: 14px;
-      color: rgba(232,232,232,0.65);
-      margin-top: 10px;
-    }
-
-    @media (max-width: 740px){
-      .hero h1{ font-size: 34px; }
-      .grid{ grid-template-columns: 1fr; }
-    }
+.small{
+  font-size: 14px;
+  color: rgba(0,0,0,0.5);
+}
   </style>
 </head>
 
