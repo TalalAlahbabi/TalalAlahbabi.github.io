@@ -5,22 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Talal Alahbabi</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
 
   <style>
     :root {
-      --bg: #0d1117;
-      --card: #161b22;
-      --border: #30363d;
-      --text: #e6edf3;
-      --muted: #9da7b3;
-      --muted-2: #8b949e;
-      --blue: #58a6ff;
-      --green: #238636;
-      --green-hover: #2ea043;
-      --danger: #dc2626;
-      --success: #1a7a4a;
-      --shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+      --bg: #f5f5f7;
+      --card: #ffffff;
+      --text: #1d1d1f;
+      --muted: #6e6e73;
+      --border: #e5e5e7;
+      --blue: #0071e3;
+      --blue-hover: #0077ed;
+      --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+      --radius: 22px;
     }
 
     * {
@@ -32,141 +29,174 @@
     }
 
     body {
+      margin: 0;
       font-family: "Inter", sans-serif;
       background: var(--bg);
       color: var(--text);
-      margin: 0;
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
     .container {
-      max-width: 950px;
+      max-width: 1020px;
       margin: 0 auto;
-      padding: 48px 18px;
+      padding: 32px 18px 60px;
     }
 
     .card {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 22px;
-      margin-bottom: 16px;
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 18px;
       box-shadow: var(--shadow);
     }
 
+    .hero {
+      padding: 46px 30px;
+      text-align: center;
+    }
+
     .hero h1 {
-      margin: 0 0 6px 0;
-      font-size: 44px;
-      letter-spacing: 0.2px;
+      margin: 0 0 10px;
+      font-size: clamp(2.3rem, 5vw, 4.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
     }
 
     .subtitle {
       margin: 0;
       color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .small {
+      font-size: 0.92rem;
+      color: var(--muted);
+      margin-top: 18px;
     }
 
     .row {
       display: flex;
-      gap: 14px;
+      justify-content: center;
+      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 14px;
+      margin-top: 24px;
     }
 
     .btn {
       display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: var(--green);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #ffffff;
+      padding: 11px 18px;
+      border-radius: 999px;
       text-decoration: none;
       font-weight: 600;
-      transition: 0.15s ease;
-      cursor: pointer;
+      font-size: 0.95rem;
+      transition: all 0.18s ease;
+      border: 1px solid transparent;
     }
 
-    .btn:hover {
-      background: var(--green-hover);
-      transform: translateY(-2px);
-      text-decoration: none;
+    .btn.primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn.primary:hover {
+      background: var(--blue-hover);
+      transform: translateY(-1px);
     }
 
     .btn.secondary {
-      background: transparent;
+      background: #ffffff;
       color: var(--text);
-      border: 1px solid var(--border);
+      border-color: var(--border);
     }
 
     .btn.secondary:hover {
-      background: rgba(255, 255, 255, 0.04);
+      background: #fafafa;
+      transform: translateY(-1px);
     }
 
     h2 {
-      margin: 0 0 10px 0;
-      font-size: 18px;
-      color: var(--text);
+      margin: 0 0 12px;
+      font-size: 1.45rem;
+      letter-spacing: -0.02em;
     }
 
-    h3 {
-      margin: 14px 0 8px 0;
-      font-size: 16px;
-      color: var(--text);
+    p {
+      margin: 0 0 14px;
     }
 
     ul {
       margin: 0;
       padding-left: 18px;
-      color: #c9d1d9;
     }
 
-    p {
-      margin-top: 0;
+    li {
+      margin-bottom: 8px;
     }
 
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      gap: 18px;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 10px;
     }
 
     .project {
-      background: var(--card);
+      background: #fbfbfd;
       border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 16px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 210px;
+      border-radius: 20px;
+      padding: 22px;
+      transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    .project:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
+    }
+
+    .project strong {
+      display: block;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
     }
 
     .project p {
-      margin: 8px 0 14px 0;
       color: var(--muted);
-    }
-
-    .small {
-      font-size: 14px;
-      color: var(--muted-2);
-      margin-top: 10px;
+      margin-bottom: 16px;
     }
 
     .tag-list {
       display: flex;
-      flex-wrap: wrap;
       gap: 8px;
-      margin-top: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
     }
 
     .tag {
       display: inline-block;
       padding: 6px 10px;
-      border-radius: 999px;
-      background: rgba(88, 166, 255, 0.08);
-      border: 1px solid rgba(88, 166, 255, 0.2);
+      background: #f0f6ff;
       color: var(--blue);
-      font-size: 13px;
+      border-radius: 999px;
+      font-size: 0.8rem;
       font-weight: 600;
+    }
+
+    .muted-link {
+      display: inline-block;
+      padding: 10px 14px;
+      border-radius: 999px;
+      background: #f5f5f7;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-weight: 600;
+      text-decoration: none;
     }
 
     a {
@@ -180,45 +210,45 @@
 
     form {
       display: grid;
-      gap: 14px;
+      gap: 16px;
       margin-top: 8px;
     }
 
     label {
       display: block;
-      margin-bottom: 6px;
+      margin-bottom: 7px;
       font-weight: 600;
-      color: var(--text);
+      font-size: 0.95rem;
     }
 
     input,
     textarea {
       width: 100%;
-      padding: 12px 14px;
-      border-radius: 10px;
       border: 1px solid var(--border);
-      background: #0d1117;
-      color: var(--text);
+      border-radius: 16px;
+      padding: 14px 16px;
       font: inherit;
-      outline: none;
-      transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      color: var(--text);
+      background: #fff;
+      transition: border-color 0.18s ease, box-shadow 0.18s ease;
     }
 
     input:focus,
     textarea:focus {
-      border-color: var(--blue);
-      box-shadow: 0 0 0 3px rgba(88, 166, 255, 0.15);
+      outline: none;
+      border-color: rgba(0, 113, 227, 0.5);
+      box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
     }
 
     textarea {
+      min-height: 140px;
       resize: vertical;
-      min-height: 130px;
     }
 
     #submit-btn {
-      width: fit-content;
-      padding: 10px 16px;
       border: none;
+      cursor: pointer;
+      width: fit-content;
     }
 
     #submit-btn:disabled {
@@ -230,36 +260,34 @@
       margin: 0;
       font-weight: 600;
       min-height: 24px;
-    }
-
-    .muted-link {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 10px;
-      background: transparent;
-      border: 1px solid var(--border);
       color: var(--muted);
-      font-weight: 600;
-      cursor: not-allowed;
-      text-decoration: none;
     }
 
-    @media (max-width: 740px) {
-      .hero h1 {
-        font-size: 34px;
-      }
+    .section-text {
+      color: var(--muted);
+      max-width: 760px;
+    }
 
-      .grid {
+    @media (max-width: 780px) {
+      .grid,
+      .project-grid {
         grid-template-columns: 1fr;
       }
 
+      .hero {
+        padding: 36px 22px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
       .container {
-        padding: 28px 14px;
+        padding: 18px 14px 40px;
       }
     }
   </style>
 </head>
-
 <body>
   <div class="container">
 
@@ -268,7 +296,7 @@
       <p class="subtitle">Computer Science student in the UK. Building small projects and learning fast.</p>
 
       <div class="row">
-        <a class="btn" href="https://github.com/TalalAlahbabi" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn primary" href="https://github.com/TalalAlahbabi" target="_blank" rel="noopener noreferrer">GitHub</a>
         <a class="btn secondary" href="#now">Now / Goals</a>
         <a class="btn secondary" href="#projects">Projects</a>
         <a class="btn secondary" href="#achievements">Achievements</a>
@@ -281,14 +309,14 @@
     <div class="grid">
       <section class="card">
         <h2>About</h2>
-        <p class="subtitle">
+        <p class="section-text">
           I’m currently studying computer science and improving my skills in programming, problem solving, and web development.
         </p>
       </section>
 
       <section class="card">
         <h2>Skills</h2>
-        <ul>
+        <ul class="section-text">
           <li>Java</li>
           <li>SQL</li>
           <li>Problem Solving</li>
@@ -299,18 +327,15 @@
 
     <section class="card" id="now">
       <h2>Now / Goals</h2>
-
-      <p class="subtitle">
+      <p class="section-text">
         Right now I am improving my Java skills and practising SQL to get better at working with databases.
         I also focus on problem solving and building small programs that follow clear rules.
       </p>
-      <br />
-      <p class="subtitle">
+      <p class="section-text">
         Over the next 12–24 months, I want to build small full-stack projects that connect a simple front end
         to a real database, so I can practise working with APIs and data handling.
       </p>
-      <br />
-      <p class="subtitle">
+      <p class="section-text">
         I would like to apply for a summer internship in software development, and I am especially interested
         in backend roles where I can work with APIs, databases, and clean system design.
       </p>
@@ -320,104 +345,87 @@
       <h2>Production Diary – Week 15</h2>
       <p><strong>Date:</strong> 13 February 2026</p>
 
-      <p>
-        This week I worked on my GitHub Pages portfolio website.
-        The structure needed improvement, so I worked on each section,
-        including About, Projects, Skills, and Contact.
-        I also started preparing my CS Maths and Tools page so I can later include
-        small tools that show my programming and problem-solving skills.
+      <p class="section-text">
+        This week I worked on my GitHub Pages portfolio website. The structure needed improvement,
+        so I worked on each section, including About, Projects, Skills, and Contact. I also started
+        preparing my CS Maths and Tools page so I can later include small tools that show my programming
+        and problem-solving skills.
       </p>
 
-      <p>
-        The achievement I am most proud of so far is successfully building a working website
-        that is publicly available online. Seeing my own portfolio live made me feel more confident
-        and helped me understand how real websites are structured.
+      <p class="section-text">
+        The achievement I am most proud of so far is successfully building a working website that is
+        publicly available online. Seeing my own portfolio live made me feel more confident and helped
+        me understand how real websites are structured.
       </p>
 
-      <p>
-        The most challenging part was understanding how HTML files connect together and making sure
-        the navigation works correctly. At the beginning I made several small mistakes, such as linking
-        pages incorrectly, but fixing them helped me understand the process better.
+      <p class="section-text">
+        The most challenging part was understanding how HTML files connect together and making sure the
+        navigation works correctly. At the beginning I made several small mistakes, such as linking pages
+        incorrectly, but fixing them helped me understand the process better.
       </p>
 
-      <p>
+      <p class="section-text">
         From this work, I learned more about basic web development concepts such as page structure,
-        hyperlinks, and layout organisation. I also began connecting this with maths, especially logical thinking
-        and structuring information clearly.
+        hyperlinks, and layout organisation. I also began connecting this with maths, especially logical
+        thinking and structuring information clearly.
       </p>
 
-      <p>
-        Next week, I want to improve the design of my website to make it look more professional and
-        add at least one complete project with a clear explanation. I also plan to continue working
-        on the Maths and Tools page and include a simple functional tool.
+      <p class="section-text">
+        Next week, I want to improve the design of my website to make it look more professional and add
+        at least one complete project with a clear explanation. I also plan to continue working on the
+        Maths and Tools page and include a simple functional tool.
       </p>
     </section>
 
     <section class="card" id="projects">
       <h2>Projects</h2>
 
-      <div class="grid">
+      <div class="project-grid">
         <div class="project">
-          <div>
-            <strong>Java Password Generator</strong>
-            <p>Generates random passwords with rules such as length, digits, uppercase, and lowercase letters, and saves output to a file.</p>
-            <div class="tag-list">
-              <span class="tag">Java</span>
-              <span class="tag">File Handling</span>
-            </div>
+          <strong>Java Password Generator</strong>
+          <p>Generates random passwords with rules such as length, digits, uppercase, and lowercase letters, and saves output to a file.</p>
+          <div class="tag-list">
+            <span class="tag">Java</span>
+            <span class="tag">File Handling</span>
           </div>
-          <div style="margin-top: 14px;">
-            <span class="muted-link">Coming soon</span>
-          </div>
+          <span class="muted-link">Coming soon</span>
         </div>
 
         <div class="project">
-          <div>
-            <strong>GPU Architecture Report</strong>
-            <p>A short report about modern GPU uses, scheduling, virtualisation, and trade-offs in production systems.</p>
-            <div class="tag-list">
-              <span class="tag">Research</span>
-              <span class="tag">Systems</span>
-            </div>
+          <strong>GPU Architecture Report</strong>
+          <p>A short report about modern GPU uses, scheduling, virtualisation, and trade-offs in production systems.</p>
+          <div class="tag-list">
+            <span class="tag">Research</span>
+            <span class="tag">Systems</span>
           </div>
-          <div style="margin-top: 14px;">
-            <span class="muted-link">Coming soon</span>
-          </div>
+          <span class="muted-link">Coming soon</span>
         </div>
 
         <div class="project">
-          <div>
-            <strong>Database Design Project</strong>
-            <p>ERD and SQL schema for a realistic scenario, including tables, keys, relationships, and queries.</p>
-            <div class="tag-list">
-              <span class="tag">SQL</span>
-              <span class="tag">Database Design</span>
-            </div>
+          <strong>Database Design Project</strong>
+          <p>ERD and SQL schema for a realistic scenario, including tables, keys, relationships, and queries.</p>
+          <div class="tag-list">
+            <span class="tag">SQL</span>
+            <span class="tag">Database</span>
           </div>
-          <div style="margin-top: 14px;">
-            <span class="muted-link">Coming soon</span>
-          </div>
+          <span class="muted-link">Coming soon</span>
         </div>
 
         <div class="project">
-          <div>
-            <strong>freeCodeCamp Labs</strong>
-            <p>Small HTML projects built to practise structure, media tags, and layout patterns.</p>
-            <div class="tag-list">
-              <span class="tag">HTML</span>
-              <span class="tag">CSS</span>
-            </div>
+          <strong>freeCodeCamp Labs</strong>
+          <p>Small HTML projects built to practise structure, media tags, and layout patterns.</p>
+          <div class="tag-list">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
           </div>
-          <div style="margin-top: 14px;">
-            <span class="muted-link">Coming soon</span>
-          </div>
+          <span class="muted-link">Coming soon</span>
         </div>
       </div>
     </section>
 
     <section class="card" id="achievements">
       <h2>Achievements</h2>
-      <ul>
+      <ul class="section-text">
         <li>Built and published my personal portfolio website using GitHub Pages.</li>
         <li>Improved my understanding of HTML structure, page linking, and layout design.</li>
         <li>Started building academic and programming projects to showcase online.</li>
@@ -440,10 +448,10 @@
 
         <div>
           <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Say hello..." rows="5"></textarea>
+          <textarea id="message" name="message" required placeholder="Say hello..."></textarea>
         </div>
 
-        <button type="submit" class="btn" id="submit-btn">Send Message</button>
+        <button type="submit" class="btn primary" id="submit-btn">Send Message</button>
         <p id="form-status"></p>
       </form>
     </section>
@@ -467,7 +475,7 @@
 
       if (!name || !email || !message) {
         status.textContent = "Please fill in all fields.";
-        status.style.color = "#dc2626";
+        status.style.color = "#d92d20";
         return;
       }
 
@@ -488,26 +496,17 @@
         });
 
         if (response.ok) {
-          status.textContent = "✓ Message sent! I will be in touch soon.";
-          status.style.color = "#1a7a4a";
+          status.textContent = "Message sent successfully.";
+          status.style.color = "#0f9d58";
           form.reset();
         } else {
-          let errorMessage = "Something went wrong. Please try again.";
-
-          try {
-            const err = await response.json();
-            console.error("Supabase error:", err);
-          } catch {
-            console.error("Request failed with status:", response.status);
-          }
-
-          status.textContent = errorMessage;
-          status.style.color = "#dc2626";
+          status.textContent = "Something went wrong. Please try again.";
+          status.style.color = "#d92d20";
         }
       } catch (error) {
-        console.error("Network error:", error);
+        console.error(error);
         status.textContent = "Could not connect. Check your internet connection.";
-        status.style.color = "#dc2626";
+        status.style.color = "#d92d20";
       } finally {
         btn.disabled = false;
         btn.textContent = "Send Message";
