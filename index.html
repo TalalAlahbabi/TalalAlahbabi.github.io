@@ -3,21 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Talal Alahbabi</title>
+  <title>Talal Alahbabi | Portfolio</title>
+  <meta
+    name="description"
+    content="Talal Alahbabi - Computer Science student in the UK, building projects in Java, SQL, and web development."
+  />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
 
   <style>
     :root {
       --bg: #f5f5f7;
       --card: #ffffff;
+      --card-soft: #fbfbfd;
       --text: #1d1d1f;
       --muted: #6e6e73;
       --border: #e5e5e7;
       --blue: #0071e3;
       --blue-hover: #0077ed;
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
-      --radius: 22px;
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius-xl: 28px;
+      --radius-lg: 22px;
+      --radius-md: 16px;
+      --max-width: 1120px;
     }
 
     * {
@@ -36,167 +49,9 @@
       line-height: 1.65;
     }
 
-    .container {
-      max-width: 1020px;
-      margin: 0 auto;
-      padding: 32px 18px 60px;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
-      margin-bottom: 18px;
-      box-shadow: var(--shadow);
-    }
-
-    .hero {
-      padding: 46px 30px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      margin: 0 0 10px;
-      font-size: clamp(2.3rem, 5vw, 4.2rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-    }
-
-    .subtitle {
-      margin: 0;
-      color: var(--muted);
-      font-size: 1.05rem;
-    }
-
-    .small {
-      font-size: 0.92rem;
-      color: var(--muted);
-      margin-top: 18px;
-    }
-
-    .row {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 24px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 11px 18px;
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: all 0.18s ease;
-      border: 1px solid transparent;
-    }
-
-    .btn.primary {
-      background: var(--blue);
-      color: white;
-    }
-
-    .btn.primary:hover {
-      background: var(--blue-hover);
-      transform: translateY(-1px);
-    }
-
-    .btn.secondary {
-      background: #ffffff;
-      color: var(--text);
-      border-color: var(--border);
-    }
-
-    .btn.secondary:hover {
-      background: #fafafa;
-      transform: translateY(-1px);
-    }
-
-    h2 {
-      margin: 0 0 12px;
-      font-size: 1.45rem;
-      letter-spacing: -0.02em;
-    }
-
-    p {
-      margin: 0 0 14px;
-    }
-
-    ul {
-      margin: 0;
-      padding-left: 18px;
-    }
-
-    li {
-      margin-bottom: 8px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-top: 10px;
-    }
-
-    .project {
-      background: #fbfbfd;
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 22px;
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-    }
-
-    .project:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.06);
-    }
-
-    .project strong {
+    img {
+      max-width: 100%;
       display: block;
-      font-size: 1.05rem;
-      margin-bottom: 8px;
-    }
-
-    .project p {
-      color: var(--muted);
-      margin-bottom: 16px;
-    }
-
-    .tag-list {
-      display: flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      margin-bottom: 16px;
-    }
-
-    .tag {
-      display: inline-block;
-      padding: 6px 10px;
-      background: #f0f6ff;
-      color: var(--blue);
-      border-radius: 999px;
-      font-size: 0.8rem;
-      font-weight: 600;
-    }
-
-    .muted-link {
-      display: inline-block;
-      padding: 10px 14px;
-      border-radius: 999px;
-      background: #f5f5f7;
-      border: 1px solid var(--border);
-      color: var(--muted);
-      font-weight: 600;
-      text-decoration: none;
     }
 
     a {
@@ -208,46 +63,458 @@
       text-decoration: underline;
     }
 
+    .container {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 28px 0;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(16px);
+      background: rgba(245, 245, 247, 0.78);
+      border-bottom: 1px solid rgba(229, 229, 231, 0.85);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      font-weight: 800;
+      font-size: 1rem;
+      letter-spacing: -0.02em;
+      color: var(--text);
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--text);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      background: #ffffff;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 26px;
+      display: grid;
+      grid-template-columns: 1.35fr 0.9fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    .hero-main,
+    .hero-side {
+      background: linear-gradient(180deg, #ffffff 0%, #fbfbfd 100%);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 30px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: #eef6ff;
+      color: var(--blue);
+      font-weight: 700;
+      font-size: 0.82rem;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0 0 14px;
+      font-size: clamp(2.3rem, 5vw, 4.5rem);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+    }
+
+    .hero-text {
+      color: var(--muted);
+      max-width: 720px;
+      font-size: 1.05rem;
+      margin-bottom: 22px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-weight: 700;
+      font-size: 0.95rem;
+      transition: 0.18s ease;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      text-decoration: none;
+      transform: translateY(-1px);
+    }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: var(--blue-hover);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-secondary:hover {
+      background: #fafafa;
+    }
+
+    .hero-stats {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      height: 100%;
+    }
+
+    .stat-box {
+      padding: 18px;
+      border-radius: 20px;
+      background: white;
+      border: 1px solid var(--border);
+    }
+
+    .stat-label {
+      font-size: 0.86rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+
+    .stat-value {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .info-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .info-card {
+      padding: 24px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: 1.8rem;
+      letter-spacing: -0.04em;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--muted);
+    }
+
+    .list li {
+      margin-bottom: 8px;
+    }
+
+    .section-head {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .section-head p {
+      max-width: 720px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    .project-card {
+      overflow: hidden;
+    }
+
+    .project-visual {
+      aspect-ratio: 16 / 9;
+      border-bottom: 1px solid var(--border);
+      background:
+        radial-gradient(circle at top right, rgba(0,113,227,0.18), transparent 30%),
+        linear-gradient(135deg, #f7faff 0%, #eef5ff 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 18px;
+    }
+
+    .mock-window {
+      width: 100%;
+      max-width: 460px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: 0 14px 28px rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .mock-topbar {
+      height: 38px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0 14px;
+      background: #fafafa;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #d9d9de;
+    }
+
+    .mock-body {
+      padding: 18px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .line {
+      height: 12px;
+      border-radius: 999px;
+      background: #e9eef5;
+    }
+
+    .line.short { width: 42%; }
+    .line.mid { width: 68%; }
+    .line.long { width: 100%; }
+
+    .project-content {
+      padding: 22px;
+    }
+
+    .project-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 14px 0 18px;
+    }
+
+    .pill {
+      padding: 6px 10px;
+      border-radius: 999px;
+      background: #f0f6ff;
+      color: var(--blue);
+      font-size: 0.82rem;
+      font-weight: 700;
+    }
+
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .ghost-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 999px;
+      background: #f5f5f7;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-weight: 700;
+    }
+
+    .ghost-link:hover {
+      text-decoration: none;
+      background: #f0f0f2;
+    }
+
+    .skills-grid,
+    .achievements-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .skill-card,
+    .achievement-card,
+    .timeline-card,
+    .contact-card {
+      padding: 24px;
+    }
+
+    .timeline-card {
+      margin-top: 18px;
+    }
+
+    .timeline-entry {
+      padding: 18px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    .timeline-entry:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .timeline-date {
+      color: var(--muted);
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 18px;
+    }
+
+    .contact-links {
+      display: grid;
+      gap: 12px;
+      margin-top: 16px;
+    }
+
+    .contact-link {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 14px 16px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fbfbfd;
+      color: var(--text);
+      font-weight: 600;
+    }
+
+    .contact-link:hover {
+      text-decoration: none;
+      background: #f7f7f9;
+    }
+
     form {
       display: grid;
-      gap: 16px;
-      margin-top: 8px;
+      gap: 14px;
     }
 
     label {
       display: block;
       margin-bottom: 7px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      font-weight: 700;
+      font-size: 0.94rem;
     }
 
     input,
     textarea {
       width: 100%;
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 14px 16px;
-      font: inherit;
+      background: white;
       color: var(--text);
-      background: #fff;
-      transition: border-color 0.18s ease, box-shadow 0.18s ease;
+      border-radius: 16px;
+      padding: 14px 15px;
+      font: inherit;
+      transition: 0.18s ease;
     }
 
     input:focus,
     textarea:focus {
       outline: none;
-      border-color: rgba(0, 113, 227, 0.5);
+      border-color: rgba(0, 113, 227, 0.45);
       box-shadow: 0 0 0 4px rgba(0, 113, 227, 0.12);
     }
 
     textarea {
-      min-height: 140px;
+      min-height: 150px;
       resize: vertical;
     }
 
     #submit-btn {
       border: none;
-      cursor: pointer;
       width: fit-content;
     }
 
@@ -257,214 +524,570 @@
     }
 
     #form-status {
-      margin: 0;
-      font-weight: 600;
       min-height: 24px;
+      margin: 0;
+      font-weight: 700;
       color: var(--muted);
     }
 
-    .section-text {
+    footer {
+      padding: 30px 0 50px;
       color: var(--muted);
-      max-width: 760px;
+      font-size: 0.95rem;
+      text-align: center;
     }
 
-    @media (max-width: 780px) {
-      .grid,
-      .project-grid {
+    @media (max-width: 980px) {
+      .hero,
+      .contact-grid,
+      .projects-grid,
+      .skills-grid,
+      .achievements-grid,
+      .info-grid {
         grid-template-columns: 1fr;
       }
 
+      .hero-side {
+        padding: 24px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .nav {
+        padding: 12px 0;
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        width: 100%;
+      }
+
       .hero {
-        padding: 36px 22px;
+        padding: 18px;
       }
 
-      .card {
-        padding: 22px;
+      .hero-main,
+      .hero-side,
+      .info-card,
+      .skill-card,
+      .achievement-card,
+      .timeline-card,
+      .contact-card,
+      .project-content {
+        padding: 20px;
       }
 
-      .container {
-        padding: 18px 14px 40px;
+      h1 {
+        font-size: 2.4rem;
+      }
+
+      h2 {
+        font-size: 1.5rem;
+      }
+
+      .section {
+        padding: 20px 0;
       }
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="nav-wrap">
+    <div class="container nav">
+      <a class="brand" href="#top">Talal Alahbabi</a>
 
-    <section class="card hero">
-      <h1>Talal Alahbabi</h1>
-      <p class="subtitle">Computer Science student in the UK. Building small projects and learning fast.</p>
-
-      <div class="row">
-        <a class="btn primary" href="https://github.com/TalalAlahbabi" target="_blank" rel="noopener noreferrer">GitHub</a>
-        <a class="btn secondary" href="#now">Now / Goals</a>
-        <a class="btn secondary" href="#projects">Projects</a>
-        <a class="btn secondary" href="#achievements">Achievements</a>
-        <a class="btn secondary" href="#contact">Contact</a>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#diary">Diary</a>
+        <a href="#contact">Contact</a>
       </div>
-
-      <p class="small">Last updated: March 2026</p>
-    </section>
-
-    <div class="grid">
-      <section class="card">
-        <h2>About</h2>
-        <p class="section-text">
-          I’m currently studying computer science and improving my skills in programming, problem solving, and web development.
-        </p>
-      </section>
-
-      <section class="card">
-        <h2>Skills</h2>
-        <ul class="section-text">
-          <li>Java</li>
-          <li>SQL</li>
-          <li>Problem Solving</li>
-          <li>HTML + CSS</li>
-        </ul>
-      </section>
     </div>
+  </div>
 
-    <section class="card" id="now">
-      <h2>Now / Goals</h2>
-      <p class="section-text">
-        Right now I am improving my Java skills and practising SQL to get better at working with databases.
-        I also focus on problem solving and building small programs that follow clear rules.
-      </p>
-      <p class="section-text">
-        Over the next 12–24 months, I want to build small full-stack projects that connect a simple front end
-        to a real database, so I can practise working with APIs and data handling.
-      </p>
-      <p class="section-text">
-        I would like to apply for a summer internship in software development, and I am especially interested
-        in backend roles where I can work with APIs, databases, and clean system design.
-      </p>
+  <main id="top">
+    <section class="section">
+      <div class="container card hero">
+        <div class="hero-main">
+          <div class="eyebrow">Computer Science Student · UK</div>
+
+          <h1>Building small systems with clear logic and clean structure.</h1>
+
+          <p class="hero-text">
+            I am Talal Alahbabi, a Computer Science student focused on Java, SQL, problem solving,
+            and practical software development. I enjoy building simple projects that solve real
+            problems and help me improve my technical thinking.
+          </p>
+
+          <div class="button-row">
+            <a
+              class="btn btn-primary"
+              href="https://github.com/TalalAlahbabi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View GitHub
+            </a>
+            <a class="btn btn-secondary" href="#projects">See Projects</a>
+            <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+          </div>
+        </div>
+
+        <div class="hero-side">
+          <div class="hero-stats">
+            <div class="stat-box">
+              <div class="stat-label">Current focus</div>
+              <div class="stat-value">Java · SQL · Web Fundamentals</div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-label">What I am building</div>
+              <div class="stat-value">Small academic and portfolio projects</div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-label">Career direction</div>
+              <div class="stat-value">Backend and software development</div>
+            </div>
+
+            <div class="stat-box">
+              <div class="stat-label">Location</div>
+              <div class="stat-value">United Kingdom</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container info-grid" id="about">
+        <section class="card info-card">
+          <h2>About Me</h2>
+          <p class="muted">
+            I am currently studying computer science and improving my skills in programming,
+            databases, and web development. My main goal is to keep building practical work that
+            shows progress, not just theory.
+          </p>
+          <p class="muted">
+            I am especially interested in backend development, APIs, data handling, and systems
+            that follow clear rules and clean logic.
+          </p>
+        </section>
+
+        <section class="card info-card">
+          <h2>What I Am Working On</h2>
+          <ul class="list">
+            <li>Improving Java with OOP, file handling, and simple algorithms</li>
+            <li>Practising SQL and relational database design</li>
+            <li>Building a portfolio that shows real work instead of empty claims</li>
+            <li>Preparing for internships in software development</li>
+          </ul>
+        </section>
+      </div>
     </section>
 
-    <section class="card" id="production-diary">
-      <h2>Production Diary – Week 15</h2>
-      <p><strong>Date:</strong> 13 February 2026</p>
-
-      <p class="section-text">
-        This week I worked on my GitHub Pages portfolio website. The structure needed improvement,
-        so I worked on each section, including About, Projects, Skills, and Contact. I also started
-        preparing my CS Maths and Tools page so I can later include small tools that show my programming
-        and problem-solving skills.
-      </p>
-
-      <p class="section-text">
-        The achievement I am most proud of so far is successfully building a working website that is
-        publicly available online. Seeing my own portfolio live made me feel more confident and helped
-        me understand how real websites are structured.
-      </p>
-
-      <p class="section-text">
-        The most challenging part was understanding how HTML files connect together and making sure the
-        navigation works correctly. At the beginning I made several small mistakes, such as linking pages
-        incorrectly, but fixing them helped me understand the process better.
-      </p>
-
-      <p class="section-text">
-        From this work, I learned more about basic web development concepts such as page structure,
-        hyperlinks, and layout organisation. I also began connecting this with maths, especially logical
-        thinking and structuring information clearly.
-      </p>
-
-      <p class="section-text">
-        Next week, I want to improve the design of my website to make it look more professional and add
-        at least one complete project with a clear explanation. I also plan to continue working on the
-        Maths and Tools page and include a simple functional tool.
-      </p>
-    </section>
-
-    <section class="card" id="projects">
-      <h2>Projects</h2>
-
-      <div class="project-grid">
-        <div class="project">
-          <strong>Java Password Generator</strong>
-          <p>Generates random passwords with rules such as length, digits, uppercase, and lowercase letters, and saves output to a file.</p>
-          <div class="tag-list">
-            <span class="tag">Java</span>
-            <span class="tag">File Handling</span>
+    <section class="section" id="projects">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Featured Projects</h2>
+            <p>
+              These projects show the kind of work I am building. Replace the placeholder links with
+              your real GitHub repositories or live pages.
+            </p>
           </div>
-          <span class="muted-link">Coming soon</span>
         </div>
 
-        <div class="project">
-          <strong>GPU Architecture Report</strong>
-          <p>A short report about modern GPU uses, scheduling, virtualisation, and trade-offs in production systems.</p>
-          <div class="tag-list">
-            <span class="tag">Research</span>
-            <span class="tag">Systems</span>
-          </div>
-          <span class="muted-link">Coming soon</span>
-        </div>
+        <div class="projects-grid">
+          <article class="card project-card">
+            <div class="project-visual">
+              <div class="mock-window">
+                <div class="mock-topbar">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="mock-body">
+                  <div class="line short"></div>
+                  <div class="line long"></div>
+                  <div class="line mid"></div>
+                  <div class="line long"></div>
+                  <div class="line short"></div>
+                </div>
+              </div>
+            </div>
 
-        <div class="project">
-          <strong>Database Design Project</strong>
-          <p>ERD and SQL schema for a realistic scenario, including tables, keys, relationships, and queries.</p>
-          <div class="tag-list">
-            <span class="tag">SQL</span>
-            <span class="tag">Database</span>
-          </div>
-          <span class="muted-link">Coming soon</span>
-        </div>
+            <div class="project-content">
+              <div class="project-title">
+                <h3>Java Password Generator</h3>
+              </div>
 
-        <div class="project">
-          <strong>freeCodeCamp Labs</strong>
-          <p>Small HTML projects built to practise structure, media tags, and layout patterns.</p>
-          <div class="tag-list">
-            <span class="tag">HTML</span>
-            <span class="tag">CSS</span>
-          </div>
-          <span class="muted-link">Coming soon</span>
+              <p class="muted">
+                Built a Java application that generates passwords based on selected rules such as
+                length, digits, uppercase letters, and lowercase letters. The program also supports
+                saving generated output into a file.
+              </p>
+
+              <div class="pill-row">
+                <span class="pill">Java</span>
+                <span class="pill">OOP</span>
+                <span class="pill">File Handling</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn btn-primary" href="#" title="Add your GitHub repo link">GitHub Repo</a>
+                <a class="ghost-link" href="#" title="Add demo or screenshot page">Project Page</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-visual">
+              <div class="mock-window">
+                <div class="mock-topbar">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="mock-body">
+                  <div class="line mid"></div>
+                  <div class="line long"></div>
+                  <div class="line long"></div>
+                  <div class="line short"></div>
+                  <div class="line mid"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-title">
+                <h3>Database Design Project</h3>
+              </div>
+
+              <p class="muted">
+                Designed an ERD and SQL schema for a realistic scenario, including entities,
+                primary keys, foreign keys, and structured relationships. The project focuses on
+                clear modelling and query-ready database design.
+              </p>
+
+              <div class="pill-row">
+                <span class="pill">SQL</span>
+                <span class="pill">ERD</span>
+                <span class="pill">Data Modelling</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn btn-primary" href="#" title="Add your GitHub repo link">GitHub Repo</a>
+                <a class="ghost-link" href="#" title="Add PDF, screenshot, or page">View Details</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-visual">
+              <div class="mock-window">
+                <div class="mock-topbar">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="mock-body">
+                  <div class="line short"></div>
+                  <div class="line mid"></div>
+                  <div class="line long"></div>
+                  <div class="line long"></div>
+                  <div class="line short"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-title">
+                <h3>GPU Architecture Report</h3>
+              </div>
+
+              <p class="muted">
+                Produced an academic report on modern GPU usage, scheduling, virtualisation, and
+                production trade-offs. The work focused on technical reading, structured writing,
+                and turning source material into a clear evidence-based summary.
+              </p>
+
+              <div class="pill-row">
+                <span class="pill">Research</span>
+                <span class="pill">Systems</span>
+                <span class="pill">Technical Writing</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn btn-primary" href="#" title="Add report link or PDF">View Report</a>
+                <a class="ghost-link" href="#" title="Add source page or summary">Summary</a>
+              </div>
+            </div>
+          </article>
+
+          <article class="card project-card">
+            <div class="project-visual">
+              <div class="mock-window">
+                <div class="mock-topbar">
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                  <span class="dot"></span>
+                </div>
+                <div class="mock-body">
+                  <div class="line mid"></div>
+                  <div class="line short"></div>
+                  <div class="line long"></div>
+                  <div class="line mid"></div>
+                  <div class="line long"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <div class="project-title">
+                <h3>Portfolio Website</h3>
+              </div>
+
+              <p class="muted">
+                Built and improved a responsive personal portfolio using HTML, CSS, and JavaScript.
+                The website was redesigned to present projects more clearly, improve navigation, and
+                create a cleaner user experience.
+              </p>
+
+              <div class="pill-row">
+                <span class="pill">HTML</span>
+                <span class="pill">CSS</span>
+                <span class="pill">JavaScript</span>
+              </div>
+
+              <div class="project-actions">
+                <a class="btn btn-primary" href="#" title="Add live website link">Live Site</a>
+                <a class="ghost-link" href="#" title="Add source code link">Source Code</a>
+              </div>
+            </div>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="card" id="achievements">
-      <h2>Achievements</h2>
-      <ul class="section-text">
-        <li>Built and published my personal portfolio website using GitHub Pages.</li>
-        <li>Improved my understanding of HTML structure, page linking, and layout design.</li>
-        <li>Started building academic and programming projects to showcase online.</li>
-      </ul>
+    <section class="section" id="skills">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Skills</h2>
+            <p>
+              This is better than writing random one-word skills. It shows what you actually do with them.
+            </p>
+          </div>
+        </div>
+
+        <div class="skills-grid">
+          <section class="card skill-card">
+            <h3>Programming</h3>
+            <ul class="list">
+              <li>Java fundamentals</li>
+              <li>OOP basics</li>
+              <li>Simple algorithms and logic building</li>
+              <li>File input and output</li>
+            </ul>
+          </section>
+
+          <section class="card skill-card">
+            <h3>Database Work</h3>
+            <ul class="list">
+              <li>SQL basics</li>
+              <li>Relational database design</li>
+              <li>Primary and foreign keys</li>
+              <li>ER diagrams and structured modelling</li>
+            </ul>
+          </section>
+
+          <section class="card skill-card">
+            <h3>Web Development</h3>
+            <ul class="list">
+              <li>HTML page structure</li>
+              <li>CSS layouts and responsive design</li>
+              <li>Basic JavaScript interaction</li>
+              <li>Portfolio and front-end improvement</li>
+            </ul>
+          </section>
+        </div>
+      </div>
     </section>
 
-    <section class="card" id="contact">
-      <h2>Get In Touch</h2>
-
-      <form id="contact-form">
-        <div>
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Achievements</h2>
+            <p>
+              Small but real progress is better than fake inflated claims.
+            </p>
+          </div>
         </div>
 
-        <div>
-          <label for="email">Your Email</label>
-          <input type="email" id="email" name="email" required placeholder="jane@example.com" />
-        </div>
+        <div class="achievements-grid">
+          <section class="card achievement-card">
+            <h3>Published My Portfolio</h3>
+            <p class="muted">
+              Built and published a personal portfolio website to present projects, academic work,
+              and technical progress online.
+            </p>
+          </section>
 
-        <div>
-          <label for="message">Message</label>
-          <textarea id="message" name="message" required placeholder="Say hello..."></textarea>
-        </div>
+          <section class="card achievement-card">
+            <h3>Built Real Academic Projects</h3>
+            <p class="muted">
+              Completed projects involving Java programming, database design, and technical research
+              instead of only theory-based study.
+            </p>
+          </section>
 
-        <button type="submit" class="btn primary" id="submit-btn">Send Message</button>
-        <p id="form-status"></p>
-      </form>
+          <section class="card achievement-card">
+            <h3>Improved Technical Communication</h3>
+            <p class="muted">
+              Practised writing clearer project summaries, structured explanations, and evidence-based
+              academic work.
+            </p>
+          </section>
+        </div>
+      </div>
     </section>
 
-  </div>
+    <section class="section" id="diary">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Production Diary</h2>
+            <p>
+              This version is stronger because it explains actual work done, not vague filler.
+            </p>
+          </div>
+        </div>
+
+        <section class="card timeline-card">
+          <div class="timeline-entry">
+            <div class="timeline-date">13 February 2026 · Week 15</div>
+            <h3>Portfolio Website Improvement</h3>
+            <p class="muted">
+              This week I worked on improving the structure of my GitHub Pages portfolio website. I
+              reorganised the main sections, improved the navigation flow, and started preparing a
+              separate area for CS Maths and Tools so I can later add simple practical tools.
+            </p>
+            <p class="muted">
+              The main achievement this week was having a working public website that presents my work
+              more clearly. This helped me understand how sections, anchors, and page structure work in
+              a real front-end project.
+            </p>
+            <p class="muted">
+              The biggest challenge was making sure links and sections connected correctly. I made small
+              errors at the start, but fixing them improved my understanding of layout structure and how
+              web pages are organised.
+            </p>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <p>
+              Keep this section simple and trustworthy. Add direct links, not just a form.
+            </p>
+          </div>
+        </div>
+
+        <div class="contact-grid">
+          <section class="card contact-card">
+            <h3>Direct Contact</h3>
+            <p class="muted">
+              You can contact me directly using the links below. Replace the placeholder email and add
+              your LinkedIn if you want.
+            </p>
+
+            <div class="contact-links">
+              <a
+                class="contact-link"
+                href="mailto:your-email@example.com"
+                title="Replace with your real email"
+              >
+                <span>Email</span>
+                <span>your-email@example.com</span>
+              </a>
+
+              <a
+                class="contact-link"
+                href="https://github.com/TalalAlahbabi"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>GitHub</span>
+                <span>@TalalAlahbabi</span>
+              </a>
+
+              <a
+                class="contact-link"
+                href="#"
+                title="Add your LinkedIn URL here"
+              >
+                <span>LinkedIn</span>
+                <span>Add your link</span>
+              </a>
+            </div>
+          </section>
+
+          <section class="card contact-card">
+            <h3>Send a Message</h3>
+
+            <form id="contact-form">
+              <div>
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" required placeholder="Jane Smith" />
+              </div>
+
+              <div>
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" required placeholder="jane@example.com" />
+              </div>
+
+              <div>
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  placeholder="Write your message here..."
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary" id="submit-btn">
+                Send Message
+              </button>
+
+              <p id="form-status"></p>
+            </form>
+          </section>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Last updated: March 2026 · Built by Talal Alahbabi
+    </div>
+  </footer>
 
   <script>
     const SUPABASE_URL = "https://jaocqvtrumrvxzmkqyxt.supabase.co";
     const SUPABASE_ANON = "sb_publishable_CtbJYouqGtYAIb0a9avmJQ_wiVkNzk2";
 
     const form = document.getElementById("contact-form");
-    const btn = document.getElementById("submit-btn");
-    const status = document.getElementById("form-status");
+    const submitBtn = document.getElementById("submit-btn");
+    const formStatus = document.getElementById("form-status");
 
     form.addEventListener("submit", async function (event) {
       event.preventDefault();
@@ -474,14 +1097,14 @@
       const message = document.getElementById("message").value.trim();
 
       if (!name || !email || !message) {
-        status.textContent = "Please fill in all fields.";
-        status.style.color = "#d92d20";
+        formStatus.textContent = "Please fill in all fields.";
+        formStatus.style.color = "#d92d20";
         return;
       }
 
-      btn.disabled = true;
-      btn.textContent = "Sending...";
-      status.textContent = "";
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+      formStatus.textContent = "";
 
       try {
         const response = await fetch(`${SUPABASE_URL}/rest/v1/contact_messages`, {
@@ -496,20 +1119,20 @@
         });
 
         if (response.ok) {
-          status.textContent = "Message sent successfully.";
-          status.style.color = "#0f9d58";
+          formStatus.textContent = "Message sent successfully.";
+          formStatus.style.color = "#0f9d58";
           form.reset();
         } else {
-          status.textContent = "Something went wrong. Please try again.";
-          status.style.color = "#d92d20";
+          formStatus.textContent = "Something went wrong. Please try again.";
+          formStatus.style.color = "#d92d20";
         }
       } catch (error) {
-        console.error(error);
-        status.textContent = "Could not connect. Check your internet connection.";
-        status.style.color = "#d92d20";
+        console.error("Network error:", error);
+        formStatus.textContent = "Could not connect. Check your internet connection.";
+        formStatus.style.color = "#d92d20";
       } finally {
-        btn.disabled = false;
-        btn.textContent = "Send Message";
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
       }
     });
   </script>
