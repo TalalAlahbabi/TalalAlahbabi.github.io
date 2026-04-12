@@ -316,6 +316,40 @@
       justify-content: center;
       padding: 18px;
     }
+    .password-tool-card {
+  padding: 24px;
+}
+
+.password-tool-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+.tool-form {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.tool-button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.password-output-wrap input[readonly] {
+  background: #f7f7f9;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+#password-tool-status {
+  min-height: 24px;
+  margin: 0;
+  font-weight: 700;
+  color: var(--muted);
+}
 
     .mock-window {
       width: 100%;
@@ -598,12 +632,13 @@
       <a class="brand" href="#top">Talal Alahbabi</a>
 
       <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#diary">Diary</a>
-        <a href="#contact">Contact</a>
-      </div>
+  <a href="#about">About</a>
+  <a href="#projects">Projects</a>
+  <a href="#tools">Tools</a>
+  <a href="#skills">Skills</a>
+  <a href="#diary">Diary</a>
+  <a href="#contact">Contact</a>
+</div>
     </div>
   </div>
 
@@ -861,6 +896,62 @@
         </div>
       </div>
     </section>
+    
+    <section class="section" id="tools">
+  <div class="container">
+    <div class="section-head">
+      <div>
+        <h2>Live Tool</h2>
+      </div>
+    </div>
+
+    <section class="card password-tool-card">
+      <div class="password-tool-grid">
+        <div>
+          <h3>Password Generator</h3>
+          <p class="muted">
+            This is a live web version of my password generator project. Enter a length and generate
+            a strong password that includes uppercase letters, lowercase letters, numbers, and symbols.
+          </p>
+
+          <div class="tool-form">
+            <div>
+              <label for="password-length">Password Length</label>
+              <input
+                type="number"
+                id="password-length"
+                min="4"
+                value="12"
+                placeholder="Enter length"
+              />
+            </div>
+
+            <div class="tool-button-row">
+              <button type="button" class="btn btn-primary" id="generate-password-btn">
+                Generate Password
+              </button>
+              <button type="button" class="btn btn-secondary" id="copy-password-btn">
+                Copy Password
+              </button>
+            </div>
+
+            <div class="password-output-wrap">
+              <label for="generated-password">Generated Password</label>
+              <input
+                type="text"
+                id="generated-password"
+                readonly
+                placeholder="Your password will appear here"
+              />
+            </div>
+
+            <p id="password-tool-status" aria-live="polite"></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
 
     <section class="section" id="skills">
       <div class="container">
@@ -1109,5 +1200,84 @@
       }
     });
   </script>
+
+  <script>
+  const passwordLengthInput = document.getElementById("password-length");
+  const generatePasswordBtn = document.getElementById("generate-password-btn");
+  const copyPasswordBtn = document.getElementById("copy-password-btn");
+  const generatedPasswordInput = document.getElementById("generated-password");
+  const passwordToolStatus = document.getElementById("password-tool-status");
+
+  function getRandomChar(characters) {
+    const index = Math.floor(Math.random() * characters.length);
+    return characters.charAt(index);
+  }
+
+  function shuffleString(text) {
+    const array = text.split("");
+
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+
+    return array.join("");
+  }
+
+  function generateStrongPassword(length) {
+    const upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const lower = "abcdefghijklmnopqrstuvwxyz";
+    const digits = "0123456789";
+    const symbols = "!@#$%^&*()_-+=<>?";
+    const allCharacters = upper + lower + digits + symbols;
+
+    let password = "";
+    password += getRandomChar(upper);
+    password += getRandomChar(lower);
+    password += getRandomChar(digits);
+    password += getRandomChar(symbols);
+
+    for (let i = 4; i < length; i++) {
+      password += getRandomChar(allCharacters);
+    }
+
+    return shuffleString(password);
+  }
+
+  generatePasswordBtn.addEventListener("click", function () {
+    const length = parseInt(passwordLengthInput.value, 10);
+
+    if (isNaN(length) || length < 4) {
+      generatedPasswordInput.value = "";
+      passwordToolStatus.textContent = "Please enter a number that is 4 or more.";
+      passwordToolStatus.style.color = "#d92d20";
+      return;
+    }
+
+    const password = generateStrongPassword(length);
+    generatedPasswordInput.value = password;
+    passwordToolStatus.textContent = "Strong password generated.";
+    passwordToolStatus.style.color = "#0f9d58";
+  });
+
+  copyPasswordBtn.addEventListener("click", async function () {
+    const password = generatedPasswordInput.value;
+
+    if (!password) {
+      passwordToolStatus.textContent = "Generate a password first.";
+      passwordToolStatus.style.color = "#d92d20";
+      return;
+    }
+
+    try {
+      await navigator.clipboard.writeText(password);
+      passwordToolStatus.textContent = "Password copied to clipboard.";
+      passwordToolStatus.style.color = "#0f9d58";
+    } catch (error) {
+      passwordToolStatus.textContent = "Copy failed. Please copy it manually.";
+      passwordToolStatus.style.color = "#d92d20";
+    }
+  });
+</script>
 </body>
 </html>
