@@ -870,6 +870,46 @@
     </section>
   </div>
 </section>
+        
+        <section class="card password-tool-card">
+  <div class="password-tool-grid">
+    <div>
+      <h3>Weather Dashboard with Advice</h3>
+      <p class="muted">
+        Search for live weather by city and get simple clothing and travel advice based on the current conditions.
+      </p>
+
+      <div class="tool-form">
+        <div>
+          <label for="weather-city">City Name</label>
+          <input
+            type="text"
+            id="weather-city"
+            placeholder="Enter city name"
+          />
+        </div>
+
+        <div class="tool-button-row">
+          <button type="button" class="btn btn-primary" id="weather-search-btn">
+            Search Weather
+          </button>
+        </div>
+
+        <div id="weather-result" class="card info-card" style="display: none; padding: 20px;">
+          <h3 id="weather-result-city">Weather Result</h3>
+          <p class="muted"><strong>Temperature:</strong> <span id="weather-temp"></span></p>
+          <p class="muted"><strong>Condition:</strong> <span id="weather-condition"></span></p>
+          <p class="muted"><strong>Humidity:</strong> <span id="weather-humidity"></span></p>
+          <p class="muted"><strong>Wind Speed:</strong> <span id="weather-wind"></span></p>
+          <p class="muted"><strong>Clothing Advice:</strong> <span id="weather-clothing"></span></p>
+          <p class="muted"><strong>Travel Advice:</strong> <span id="weather-travel"></span></p>
+        </div>
+
+        <p id="weather-status" aria-live="polite"></p>
+      </div>
+    </div>
+  </div>
+</section>
 
     <section class="section" id="skills">
       <div class="container">
@@ -1190,5 +1230,106 @@
     }
   });
 </script>
+
+        <script>
+  const WEATHER_API_KEY = "67f2082b1e19868240e6ee3bee2f7e48";
+
+  const weatherCityInput = document.getElementById("weather-city");
+  const weatherSearchBtn = document.getElementById("weather-search-btn");
+  const weatherStatus = document.getElementById("weather-status");
+  const weatherResult = document.getElementById("weather-result");
+
+  const weatherResultCity = document.getElementById("weather-result-city");
+  const weatherTemp = document.getElementById("weather-temp");
+  const weatherCondition = document.getElementById("weather-condition");
+  const weatherHumidity = document.getElementById("weather-humidity");
+  const weatherWind = document.getElementById("weather-wind");
+  const weatherClothing = document.getElementById("weather-clothing");
+  const weatherTravel = document.getElementById("weather-travel");
+
+  function getClothingAdvice(temp) {
+    if (temp < 10) {
+      return "Wear a heavy jacket.";
+    } else if (temp < 20) {
+      return "Wear a light jacket.";
+    } else {
+      return "Light clothing is fine.";
+    }
+  }
+
+  function getTravelAdvice(condition) {
+    const lowerCondition = condition.toLowerCase();
+
+    if (lowerCondition.includes("rain")) {
+      return "Take an umbrella when going outside.";
+    } else if (lowerCondition.includes("snow")) {
+      return "Drive carefully due to snow.";
+    } else {
+      return "Weather is good for travel.";
+    }
+  }
+
+  async function searchWeather() {
+    const city = weatherCityInput.value.trim();
+
+    if (!city) {
+      weatherStatus.textContent = "Please enter a city name.";
+      weatherStatus.style.color = "#d92d20";
+      weatherResult.style.display = "none";
+      return;
+    }
+
+    weatherStatus.textContent = "Searching...";
+    weatherStatus.style.color = "var(--muted)";
+    weatherResult.style.display = "none";
+
+    try {
+      const url = `https://api.openweathermap.org/data/2.5/weather?q=${encodeURIComponent(city)}&appid=${WEATHER_API_KEY}&units=metric`;
+
+      const response = await fetch(url);
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (response.status === 404) {
+          weatherStatus.textContent = "City not found.";
+        } else if (response.status === 401) {
+          weatherStatus.textContent = "Invalid API key.";
+        } else {
+          weatherStatus.textContent = "Something went wrong.";
+        }
+
+        weatherStatus.style.color = "#d92d20";
+        return;
+      }
+
+      const cityName = data.name;
+      const temperature = data.main.temp;
+      const condition = data.weather[0].description;
+      const humidity = data.main.humidity;
+      const windSpeed = data.wind.speed;
+
+      weatherResultCity.textContent = `Weather in ${cityName}`;
+      weatherTemp.textContent = `${temperature} °C`;
+      weatherCondition.textContent = condition;
+      weatherHumidity.textContent = `${humidity}%`;
+      weatherWind.textContent = `${windSpeed} m/s`;
+      weatherClothing.textContent = getClothingAdvice(temperature);
+      weatherTravel.textContent = getTravelAdvice(condition);
+
+      weatherResult.style.display = "block";
+      weatherStatus.textContent = "Weather loaded successfully.";
+      weatherStatus.style.color = "#0f9d58";
+    } catch (error) {
+      weatherStatus.textContent = "Network error. Please try again.";
+      weatherStatus.style.color = "#d92d20";
+      weatherResult.style.display = "none";
+      console.error(error);
+    }
+  }
+
+  weatherSearchBtn.addEventListener("click", searchWeather);
+</script>
+
+    
 </body>
 </html>
